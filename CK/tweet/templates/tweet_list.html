@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{%block title%}django tweet
+
+{%endblock%}
+
+{%block content%}
+ <h1>Welcome to ck's first django project</h1>
+ <a class="btn btn-info" href="{%url 'tweet_create' %}">Create tweet</a>
+ <div class="conatiner row gap-2">
+    {% for tweet in tweets %}
+    <div class="card" style="width: 18rem;">
+      {% if tweet.photo %}
+    <img src="{{ tweet.photo.url }}" class="card-img-top" alt="Tweet photo">
+{% endif %}
+
+
+  <div class="card-body">
+    <h5 class="card-title">@{{tweet.user.username}}</h5>
+    <p class="card-text fs-5 text-dark-emphasis" style="font-style: italic;">
+      "{{ tweet.text }}"</p>
+      <p class="text-muted small">
+  🕒 <span title="{{ tweet.created_at|date:'M d, Y H:i' }}">
+    {{ tweet.created_at|timesince }} ago
+  </span>
+</p>
+
+
+    {% if tweet.user == user %}
+    <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>
+    {% endif %}
+  </div>
+</div>{% endfor %}
+
+ </div>
+ 
+{%endblock%} 

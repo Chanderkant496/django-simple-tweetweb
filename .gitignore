@@ -1,0 +1,38 @@
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+
+# Environment variables
+.env
+
+# VSCode & IDEs
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Migrations (optional — only ignore if not sharing)
+# **/migrations/*.py
+# **/migrations/__pycache__/
+
+# Compiled files
+*.egg
+*.egg-info/
+dist/
+build/
